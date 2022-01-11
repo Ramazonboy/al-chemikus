@@ -1,4 +1,4 @@
-const formula = {}
+let formula = {}
 
 const changeElement = (element) => {
     if (formula[element]) {
@@ -11,16 +11,25 @@ const changeElement = (element) => {
 
 }
 
+const delFormula = (e) => {
+    Object.entries(formula).map((entry) => {
+        if (e == entry[0])
+            console.log('ishldi');
+    }
+
+    )
+}
+
 const showFormula = () => {
     let word = ''
-    // for (key in formula) {
-    //     console.log(key.length);
+    Object.entries(formula).map((entry) => {
+        if (entry[1].length == 1) {
+            word += entry[0]
 
-    //     // word += key + key.length
-    // }
-    // console.log(formula);
-    for (const iterator of object) {
-        console.log(iterator);
-    }
-    //return word;
+        }
+        else
+            word += entry[0] + entry[1].length
+    })
+    //console.log(formula);
+    return word;
 }
