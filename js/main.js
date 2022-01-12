@@ -34,6 +34,9 @@ const jadvalYarat = () => {
     p1.innerHTML = element[rand].nomi
     console.log(element[rand].formulasi);
     h1.style.minHeight = '40px'
+    const col3Righth1 = document.createElement("h1")
+    col3Righth1.innerHTML = `Chance: ${chance}`
+    col3Right.append(col3Righth1)
     row1.append(col3Left, col6, col3Right)
     const ok = document.createElement("button")
     ok.className = 'btn btn-primary';
