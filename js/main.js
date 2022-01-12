@@ -119,4 +119,53 @@ const refresh = () => {
     })
     div.append(aa, btn)
     body.append(div)
-}
+
+    // let oldBestScore = +localStorage.getItem("score");
+
+    //yourScore.innerHTML = scoreNumber;
+
+    localStorage.setItem("score", scoreNumber);
+
+    let allScores = JSON.parse(localStorage.getItem("allScores")) || [];
+
+    let scores = [...allScores, scoreNumber].sort((a, b) => a - b);
+    scores = [...new Set(scores)];
+
+    let topScores = scores.slice(-7);
+    console.log(topScores);
+
+    localStorage.setItem("allScores", JSON.stringify(scores));
+    const table = document.createElement('table')
+    table.className = 'table table-dark table-striped w-50 text-center'
+    const thead = document.createElement('thead')
+    const trh = document.createElement("tr");
+    const th1 = document.createElement("th");
+    const th2 = document.createElement("th");
+    th1.innerHTML = "T/r"
+    th2.innerHTML = "Ball"
+    trh.append(th1, th2)
+    thead.append(trh)
+    const tbody = document.createElement('tbody')
+
+    topScores.reverse()
+    topScores.map((s, i) => {
+        const tr = document.createElement("tr");
+        console.log("sss", s, i);
+        const td1 = document.createElement("td");
+        td1.innerHTML = i + 1;
+        td1.className = "fw-bold";
+
+        const td2 = document.createElement("td");
+        td2.innerHTML = s;
+
+
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tbody.append(tr)
+        console.log(tbody);
+    });
+    table.append(thead, tbody);
+    console.log(table);
+    div.append(table)
+
+};
