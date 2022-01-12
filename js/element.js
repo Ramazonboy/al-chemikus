@@ -103,7 +103,7 @@ const element = [
     },
     {
         nomi: "Javel suvi ",
-        formulasi: "K2CL2O"
+        formulasi: "K2Cl2O"
     },
     {
         nomi: "Kalomel ",
