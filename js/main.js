@@ -1,5 +1,6 @@
-
 const body = document.querySelector('body');
+let scoreNumber = 0;
+let chance = 5;
 
 const randNum = (num) => {
     return Math.floor(Math.random() * num)
@@ -8,52 +9,58 @@ const randNum = (num) => {
 var word
 
 const jadvalYarat = () => {
+    body.innerHTML = ''
     const container = document.createElement('div');
     container.className = "container p-3 ";
     const row = document.createElement('div');
     row.className = "row p-2";
     const row1 = document.createElement('div');
     row1.className = "row p-2";
+    const col3Left = document.createElement('div')
+    const col3Right = document.createElement('div')
+    const h1Left = document.createElement("h1")
+    h1Left.innerHTML = `Your Score : ${scoreNumber}`;
+    col3Left.append(h1Left)
     const col6 = document.createElement('div');
-    col6.className = "col-6 offset-3 p-2 text-center";
+
+    col6.className = "col-6  p-2 text-center";
+    col3Left.className = "col-3  p-2 text-center";
+    col3Right.className = "col-3  p-2 text-center";
+
     const h1 = document.createElement("h1")
     const p1 = document.createElement("h4")
     const rand = randNum(element.length - 1)
+    console.log(rand);
     p1.innerHTML = element[rand].nomi
-    row1.append(col6)
-    const del = document.createElement("button")
-    del.className = 'btn btn-primary d-none'
+    console.log(element[rand].formulasi);
+    h1.style.minHeight = '40px'
+    row1.append(col3Left, col6, col3Right)
     const ok = document.createElement("button")
-    ok.className = 'btn btn-primary d-none'
+    ok.className = 'btn btn-primary';
     ok.addEventListener("click", () => {
         h1.innerHTML = showFormula()
-        if (h1.innerHTML === element[rand].formulasi)
-            alert('true');
-        else
-            alert('false');
-        formula = {}
-        body.innerHTML = ""
-        jadvalYarat()
-    })
-    del.innerHTML = `<i class="fas fa-backspace    "></i>`
-    ok.innerHTML = `<i class="fas fa-check    "></i>`
-    del.addEventListener('click', () => {
-        let a = h1.innerHTML;
-        //console.log(a);
-        // a1 = a[a.length - 1];
-        // if (a1 != a1.toUpperCase())
-        //     h1.innerHTML = a.substring(0, a.length - 2)
-        // else {
-        //     h1.innerHTML = a.substring(0, a.length - 1)
-        // }
-        if (h1.innerHTML === '') {
-            del.classList.add('d-none')
-            ok.classList.add('d-none')
+        if (h1.innerHTML === element[rand].formulasi) {
+            scoreNumber++
+            console.log(scoreNumber, chance);
+            formula = {}
+            jadvalYarat();
+        }
+        else {
+            chance--
+            console.log(scoreNumber, chance);
+            if (chance == 0) {
+                //body.innerHTML = ''
+                refresh()
+            }
+            else {
+                formula = {}
+                jadvalYarat()
+            }
+
         }
 
-        // console.log(a[a.length - 1]);
-
     })
+    ok.innerHTML = `<i class="fas fa-check    "></i>`
     davriyJadval.map((item) => {
         const col = document.createElement("div")
         const h3 = document.createElement("h3")
@@ -69,9 +76,8 @@ const jadvalYarat = () => {
             if (col.classList.contains('black') || col.classList.contains('white')) return
             changeElement(item.kimyoviyBelgisi)
             count += 1;
-            if (del.classList.contains('d-none')) {
+            if (ok.classList.contains("d-none")) {
                 ok.classList.remove('d-none')
-                del.classList.remove('d-none')
             }
             h1.innerHTML = ""
             let text = ''
@@ -85,7 +91,7 @@ const jadvalYarat = () => {
             //console.log(text);
             h1.innerHTML = text
         })
-        col6.append(p1, h1, del, ok)
+        col6.append(p1, h1, ok)
         col.append(p, h3)
         row.append(col)
     })
@@ -93,4 +99,21 @@ const jadvalYarat = () => {
     container.append(row1, row)
     body.append(container)
 }
-jadvalYarat()
+body.onload = jadvalYarat()
+const refresh = () => {
+    body.innerHTML = "";
+    const div = document.createElement("div")
+    div.className = 'refresh'
+    const aa = document.createElement('h1')
+    aa.innerHTML = `Your Score : ${scoreNumber}`
+    const btn = document.createElement('button')
+    btn.className = "btn btn-primary"
+    btn.innerHTML = ` <i class="fas fa-redo    "></i>`;
+    btn.addEventListener('click', () => {
+        chance = 5;
+        scoreNumber = 0
+        jadvalYarat();
+    })
+    div.append(aa, btn)
+    body.append(div)
+}
