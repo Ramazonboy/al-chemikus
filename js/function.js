@@ -29,12 +29,15 @@ const sectionOne = () => {
     const colLeft = createElement('div', '', 'col-md-4', sectOneDiv)
     const mediaQ=window.matchMedia('(max-width:576px)')
     if (mediaQ.matches)
-    {colLeft.classList.remove('sectOne')
+    {
+        sectOneDiv.classList.remove('sectOne')
+        sectOneDiv.classList.add('my-2')
 console.log('mediaaa');
 }
     else 
     {
-        sectOneDiv.classList.add('sectOne')
+        sectOneDiv.classList.remove('my-2')
+        sectOneDiv.classList.add('sectOne row')
     console.log(mediaQ);
     }
     const colLeftH1 = createElement('h1', `<span class="text-danger"> al-ChemikuS </span>bilan muvaffiqiyatga erishing`, 'text-center', colLeft)

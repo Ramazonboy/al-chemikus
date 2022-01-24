@@ -10,11 +10,11 @@ const jadvalYarat = (data) => {
     headerRender()
     sectionOne()
     const container = document.createElement('div');
-    container.className = "container-fluid p-3 ";
+    container.className = "container-fluid p-3 py-5 ";
     container.style.background="#554552"
     const row = document.createElement('div');
     row.className = "row p-2";
-    container.style.height='90vh'
+    container.style.height='95vh'
     row.style.maxHeight='60vh'
     row.style.overflow='auto'
     const row1 = document.createElement('div');
