@@ -1,4 +1,6 @@
-let formula = {}
+import { formula } from "./game.js"
+
+//const formula1 = (res) => { return res }
 
 const changeElement = (element) => {
     if (formula[element]) {
@@ -11,15 +13,16 @@ const changeElement = (element) => {
 
 }
 
-const delFormula = (e) => {
-    Object.entries(formula).map((entry) => {
-        if (e == entry[0])
-            console.log('ishldi');
+const kimyoviyFormulaYozish = (word) => {
+    let text = ''
+    for (const letter of word) {
+        if (letter >= 0 && letter <= 9) {
+            text += `<sub>${letter}</sub>`
+        }
+        else text += letter
     }
-
-    )
+    return text
 }
-
 const showFormula = () => {
     let word = ''
     Object.entries(formula).map((entry) => {
@@ -33,3 +36,5 @@ const showFormula = () => {
     //console.log(formula);
     return word;
 }
+
+export { changeElement, showFormula, kimyoviyFormulaYozish }
