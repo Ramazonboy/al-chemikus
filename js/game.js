@@ -14,7 +14,7 @@ const jadvalYarat = (data) => {
     container.style.background="#554552"
     const row = document.createElement('div');
     row.className = "row p-2";
-    row.style.maxHeight='60vh'
+    container.style.maxHeight='100vh'
     row.style.overflow='auto'
     const row1 = document.createElement('div');
     row1.className = "row p-2";
