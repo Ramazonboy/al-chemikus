@@ -27,6 +27,16 @@ const sectionOne = () => {
     const sect1 = createElement('section', '', 'container-fluid ', body)
     const sectOneDiv = createElement('div', '', 'row sectOne justify-content-center align-items-center', sect1)
     const colLeft = createElement('div', '', 'col-md-4', sectOneDiv)
+    const mediaQ=window.matchMedia('(max-width:576px)')
+    if (mediaQ.matches)
+    {colLeft.classList.add('d-none')
+console.log('mediaaa');
+}
+    else 
+    {
+        colLeft.classList.remove('d-none')
+    console.log(mediaQ);
+    }
     const colLeftH1 = createElement('h1', `<span class="text-danger"> al-ChemikuS </span>bilan muvaffiqiyatga erishing`, 'text-center', colLeft)
     const colRight = createElement('div', '', 'col-md-8', sectOneDiv)
     const colRightImg = createElement('img', '', 'w-100 ', colRight);
@@ -34,7 +44,8 @@ const sectionOne = () => {
 }
 const headerRender = () => {
     body.innerHTML = ''
-    const header = createElement('header', '', 'sticky-top', body);
+    const header = createElement('header', '', 'sticky-top d-flex justify-content-center  align-items-center' , body);
+    header.style.height='10vh'
     const container = createElement("div", "", "container-fluid m-0 p-0", header);
 
 
