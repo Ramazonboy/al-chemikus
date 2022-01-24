@@ -29,12 +29,12 @@ const sectionOne = () => {
     const colLeft = createElement('div', '', 'col-md-4', sectOneDiv)
     const mediaQ=window.matchMedia('(max-width:576px)')
     if (mediaQ.matches)
-    {colLeft.classList.add('d-none')
+    {colLeft.classList.remove('sectOne')
 console.log('mediaaa');
 }
     else 
     {
-        colLeft.classList.remove('d-none')
+        sectOneDiv.classList.add('sectOne')
     console.log(mediaQ);
     }
     const colLeftH1 = createElement('h1', `<span class="text-danger"> al-ChemikuS </span>bilan muvaffiqiyatga erishing`, 'text-center', colLeft)
