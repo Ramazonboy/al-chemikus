@@ -15,7 +15,7 @@ const jadvalYarat = (data) => {
     const row = document.createElement('div');
     row.className = "row p-2";
     container.style.maxHeight='100vh'
-    row.style.overflow='auto'
+    container.style.overflow='auto'
     const row1 = document.createElement('div');
     row1.className = "row p-2";
     const col3Left = document.createElement('div')
