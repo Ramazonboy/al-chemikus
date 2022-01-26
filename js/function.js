@@ -36,10 +36,9 @@ const sectionOne = () => {
     if (mediaQ.matches)
     {
         sectOneDiv.classList.remove('sectOne')
-        sectOneDiv.classList.add('my-5')
-        colRight.classList.add('my-5')
-        colRight.classList.add('py-5')
-        colLeft.classList.add('my-5')
+        sectOneDiv.classList.add('my-3')
+        colRight.classList.add('my-3')
+        colLeft.classList.add('my-3')
         //colLeft.classList.add('py-5')
         colRightImg.style.height='50vh'
 
