@@ -36,7 +36,8 @@ const sectionOne = () => {
     if (mediaQ.matches)
     {
         sectOneDiv.classList.remove('sectOne')
-        //sectOneDiv.classList.add('my-3')
+        sectOneDiv.classList.add('my-3')
+        sectOneDiv.style.height='90vh'
         colRight.classList.add('my-3')
         colLeft.classList.add('my-3')
         //colLeft.classList.add('py-5')
