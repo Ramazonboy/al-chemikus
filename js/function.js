@@ -41,6 +41,7 @@ const sectionOne = () => {
         colRight.classList.add('py-5')
         colLeft.classList.add('my-5')
         colLeft.classList.add('py-5')
+        colRightImg.style.height='50vh'
 
 console.log('mediaaa');
 }
