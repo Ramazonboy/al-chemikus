@@ -1,4 +1,4 @@
-import { getElement } from "./firebase.js"
+import { getElement1 } from "./firebase.js"
 const elementI =[]
     
 const elementRead=(data)=>{
@@ -10,6 +10,6 @@ const elementRead=(data)=>{
     )
     })
 }
-const a=getElement(elementRead)
+ const a = getElement1(elementRead)
 
 export { elementI }

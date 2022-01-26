@@ -7,7 +7,7 @@ let formula = {}
 var scoreNumber
 var chance1 = 3
 const jadvalYarat = (data) => {
-    
+    sect.innerHTML=''
     const container = document.createElement('div');
     container.className = "container-fluid p-3 py-5 ";
     container.style.background="#554552"
@@ -48,8 +48,8 @@ const jadvalYarat = (data) => {
         if (h1.innerHTML === elementI[rand].formulasi) {
             scoreNumber1++
             formula = {}
-            const trueDiv=createElement('div','','refresh',body)
-            getJadval(jadvalYarat);
+            const trueDiv=createElement('div','','refresh',sect)
+            // getJadval(jadvalYarat);
         }
         else {
             chance1--

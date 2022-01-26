@@ -1,7 +1,8 @@
-import { signOutFB,getJadval } from "./firebase.js";
-import {  showFormula, kimyoviyFormulaYozish } from "./formula.js"
+import { signOutFB,getJadval, getElement } from "./firebase.js";
+import {   kimyoviyFormulaYozish } from "./formula.js"
 import { jadvalYarat, scoreNumber } from "./game.js";
 import { index } from "./index.js";
+
 import { signUp } from "./reg.js";
 
 const body = document.querySelector('body')
@@ -22,7 +23,8 @@ const createElement = (tagName, innerHTML, className, father) => {
 };
 
 const sectionOne = () => {
-    
+
+    sect.innerHTML=''
     const sect1 = createElement('section', '', 'container-fluid ', sect)
     const sectOneDiv = createElement('div', '', 'row sectOne justify-content-center align-items-center', sect1)
     const colLeft = createElement('div', '', 'col-md-4', sectOneDiv)
@@ -113,7 +115,7 @@ const headerRender = () => {
 };
 
 const refresh = () => {
-    body.innerHTML = "";
+    sect.innerHTML = "";
     const div = document.createElement("div")
     div.className = 'refresh'
     const aa = document.createElement('h1')
@@ -125,7 +127,7 @@ const refresh = () => {
         getJadval(jadvalYarat);
     })
     div.append(aa, btn)
-    body.append(div)
+    sect.append(div)
 
     // let oldBestScore = +localStorage.getItem("score");
 
@@ -180,8 +182,10 @@ const refresh = () => {
 //getElement(table1);
 function table1(data) {
     // console.log(data);
-    const div = createElement('div','','container',sect)
-    const table = createElement('table', "", "table table-dark table-striped bg-white ", div);
+    sect.innerHTML=''
+    const div = createElement('div','','bg-dark',sect)
+    const container = createElement('div','','container',div)
+    const table = createElement('table', "", "table table-dark table-striped  ", container);
     const thead = createElement('thead', "", "", table);
 
     const tr = createElement('tr', "", "", thead)
@@ -200,4 +204,53 @@ function table1(data) {
     })
     console.log("chizildi");
 }
-export { body,sect, headerRender, randNum, createElement, refresh, sectionOne,table1}   
+function table2(data,index) {
+    // console.log(data);
+    const sectOlimlar =createElement('section','','bg-white  py-5',sect)
+    const h1Olimlar = createElement('h1','Murakkab moddalarning kimyoviy formulasi','text-center text-dark  ', sectOlimlar)
+    const div = createElement('div','','container',sectOlimlar)
+
+    const table = createElement('table', "", "table table-light table-striped ", div);
+    const thead = createElement('thead', "", "", table);
+
+    const tr = createElement('tr', "", "", thead)
+    const th1 = createElement('th', '#', '', tr)
+    const th2 = createElement('th', 'Element Nomi', '', tr)
+    const th3 = createElement('th', 'Kimyoviy Formulasi', '', tr)
+    const tbody = createElement('tbody', '', '', table)
+    const a = Object.entries(data);
+    console.log(a);
+    let indexTable=index
+    console.log(indexTable);
+    let mapBreak=true;
+    a.map((item) => {
+        
+        if (item[1].uid<=indexTable+9&&item[1].uid>=indexTable) {
+            
+            mapBreak=true
+        }
+        else mapBreak=false
+        if(mapBreak){
+        const tr = createElement('tr', "", "", tbody)
+        const td1 = createElement('td', `${item[1].uid + 1}`, '', tr)
+        const td2 = createElement('td', `${item[1].elementName}`, '', tr)
+        const td3 = createElement('td', kimyoviyFormulaYozish(`${item[1].elementChemistryFormula}`), '', tr)
+        }
+
+       
+        
+    }) 
+    const btnDiv=createElement('div','','d-flex justify-content-end',div)
+    const btnTable= createElement('button','To\'liq','btn btn-primary text-center',btnDiv)
+   
+    btnTable.addEventListener("click",()=>{
+        sectOlimlar.innerHTML=''
+        sectOlimlar.classList.remove('bg-white')
+        sectOlimlar.classList.remove('py-5')
+        if (a.length>indexTable+9)
+        getElement(table2,indexTable+10)
+        else getElement(table2)
+    })
+
+}
+export { body,sect, headerRender, randNum, createElement, refresh, sectionOne,table1 ,table2}   

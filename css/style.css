@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif; }
+  font-family: 'Dongle', sans-serif; }
 
 body {
   background-color: #CEE8E2 !important; }
@@ -36,6 +36,10 @@ body {
 .main {
   width: 100%;
   height: 100vh;
+  position: absolute;
+  top: 0px;
+  z-index: 99999;
+  background-color: #CEE8E2;
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -92,10 +96,13 @@ ul {
 .cards {
   background: #CEE8E2;
   box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1;
-  border-radius: 10px; }
+  border-radius: 10px;
+  max-width: 300px;
+  min-width: 250px;
+  margin: 0 auto; }
   .cards img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     padding: 10px;
     border-radius: 50%;
     margin: 0 auto;

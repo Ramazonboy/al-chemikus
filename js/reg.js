@@ -1,11 +1,11 @@
 import { createNewUser, getJadval, signIn } from "./firebase.js";
-import { body, createElement } from "./function.js";
+import { body, sect,createElement } from "./function.js";
 import { jadvalYarat } from "./game.js";
 import { index } from "./index.js";
 
 const signUp = () => {
-    body.innerHTML = "";
-    const main = createElement("main", "", "main", body);
+    sect.innerHTML = "";
+    const main = createElement("main", "", "main", sect);
     const forma= createElement('div','','forma p-2  ',main)
     const col7 = createElement(
         "div",
@@ -68,9 +68,9 @@ const signUp = () => {
 };
 
 function logIn() {
-    body.innerHTML = "";
+    sect.innerHTML = "";
 
-    const main = createElement("main", "", "main", body);
+    const main = createElement("main", "", "main", sect);
 
     const forma= createElement('div','','forma p-2  ',main)
     const col7 = createElement(
@@ -118,7 +118,8 @@ function logIn() {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         e.stopPropagation()
-        signIn(emailInputSign.value, passwordInputSign.value, index()
+
+        signIn(emailInputSign.value, passwordInputSign.value, index
 
         )
     })

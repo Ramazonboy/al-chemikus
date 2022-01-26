@@ -21,6 +21,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyAvWbxZw1JBHCGLgNL9CcmN7BqWLMhR16w",
     authDomain: "al-chemikus.firebaseapp.com",
@@ -41,7 +42,8 @@ const createNewUser = (name, email, password, callback) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const uid = userCredential.user.uid;
-            console.log("sing in", uid);
+            const user=userCredential.user
+            console.log(user);
 
             writeUserData(uid, name, email, callback);
         })
@@ -57,11 +59,11 @@ const createNewUser = (name, email, password, callback) => {
 function writeUserData(userId, name, email, callback) {
     set(ref(db, 'users/' + userId), {
         uid: userId,
-        username: name,
+        displayName: name,
         email: email,
     }).then((res) => {
         console.log(res);
-        callback()
+        callback(userId)
 
     }).catch((error) => {
         console.log(error);
@@ -123,7 +125,7 @@ const signIn = (email, password, callback) => {
             // Signed in
             const user = userCredential.user;
             console.log("sign in bollldi");
-            callback();
+            callback(user.uid);
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -133,13 +135,14 @@ const signIn = (email, password, callback) => {
         });
 };
 
-const isSignIn = (callback = () => { }) => {
+const isSignIn = (callback ,) => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            callback(true);
+
+            callback(user.uid)
+           
         } else {
-            console.warn("no sign in");
-            callback(false);
+           callback(false)
         }
     });
 };
@@ -155,7 +158,7 @@ const signOutFB = (callback = () => { }) => {
 };
 
 
-function getUsers(calback) {
+function getUsers(calback=()=>{}) {
     onValue(ref(db, 'users/'), (data) => {
         const dataVal = data.val();
         calback(dataVal || {})
@@ -183,12 +186,19 @@ function getJadval(calback) {
     })
     
 }
-function getElement(calback) {
+function getElement(calback,index) {
     onValue(ref(db, 'Element/'), (data) => {
         const dataVal = data.val();
-        calback(dataVal)
-        // console.log(dataVal);
+        calback(dataVal,index||0)
+ 
 
     })
 }
-export { getProffessor,getUsers, writeProffessor,createNewUser, signIn, isSignIn, writeElement, getElement, writeMendeleyevJadval, signOutFB, getJadval };
+function getElement1(calback) {
+    onValue(ref(db, 'Element/'), function (data) {
+            const dataVal = data.val();
+            calback(dataVal);
+            
+        })
+}
+export {getElement1, getProffessor,getUsers, writeProffessor,createNewUser, signIn, isSignIn, writeElement, getElement, writeMendeleyevJadval, signOutFB, getJadval };

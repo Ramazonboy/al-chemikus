@@ -73,7 +73,9 @@ olimlar.map((item,index)=>{
 })
 
 const prof=(data)=>{
-    const container=createElement('div','','container  ',sect)
+    const sectOlimlar =createElement('section','','bg-dark  py-5',sect)
+    const h1Olimlar = createElement('h1','O\'zbekistondan kimyo faniga hissa qo\'shgan olimlar','text-center text-danger  ', sectOlimlar)
+    const container=createElement('div','','container  ',sectOlimlar)
     const row=createElement('div','','row',container)
     const olimlar=Object.entries(data)
     olimlar.map((item)=>{
