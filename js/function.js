@@ -38,8 +38,9 @@ const sectionOne = () => {
         sectOneDiv.classList.remove('sectOne')
         sectOneDiv.classList.add('my-5')
         colRight.classList.add('my-5')
-        colRight.classList.add('mb-5')
+        colRight.classList.add('py-5')
         colLeft.classList.add('my-5')
+        colLeft.classList.add('py-5')
 
 console.log('mediaaa');
 }
