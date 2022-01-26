@@ -51,22 +51,20 @@ body{
     }
 }
 .main {
-    .changing {
-      background-color: #38b592;
-      height: 100vh;
-      .fs-1 {
-        font-size: 50px !important;
-      }
-      button {
-        border-radius: 10px;
-        border: 1px solid white;
-        background-color: transparent;
-        outline: none;
-      }
-    }
-    .head_word {
-    //   color: #38b592;
-      font-size: 50px !important;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .forma{
+        min-width: 300px;
+        min-height: 400px;
+        box-shadow: -3px -3px 7px #ffffff,
+               3px 3px 5px #ceced1;
+        border-radius: 10px !important;
+        form{
+            margin: 0 auto;
+        }
     }
   }
    

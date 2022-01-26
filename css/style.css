@@ -33,18 +33,19 @@ body {
         align-items: center; }
       .menu .li p {
         display: none; } }
-.main .changing {
-  background-color: #38b592;
-  height: 100vh; }
-  .main .changing .fs-1 {
-    font-size: 50px !important; }
-  .main .changing button {
-    border-radius: 10px;
-    border: 1px solid white;
-    background-color: transparent;
-    outline: none; }
-.main .head_word {
-  font-size: 50px !important; }
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .main .forma {
+    min-width: 300px;
+    min-height: 400px;
+    box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1;
+    border-radius: 10px !important; }
+    .main .forma form {
+      margin: 0 auto; }
 
 ul {
   margin: 0;
