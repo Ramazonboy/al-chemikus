@@ -37,7 +37,7 @@ const sectionOne = () => {
     {
         sectOneDiv.classList.remove('sectOne')
         sectOneDiv.classList.add('my-3')
-        sectOneDiv.style.height='90vh'
+        sectOneDiv.style.height='80vh'
         // colRight.classList.add('my-3')
         // colLeft.classList.add('my-3')
         //colLeft.classList.add('py-5')
