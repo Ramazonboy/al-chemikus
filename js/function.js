@@ -36,10 +36,10 @@ const sectionOne = () => {
     if (mediaQ.matches)
     {
         sectOneDiv.classList.remove('sectOne')
-        sectOneDiv.classList.add('my-2')
-        colRight.classList.add('my-2')
+        sectOneDiv.classList.add('my-5')
+        colRight.classList.add('my-5')
         colRight.classList.add('mb-5')
-        colLeft.classList.add('my-2')
+        colLeft.classList.add('my-5')
 
 console.log('mediaaa');
 }
