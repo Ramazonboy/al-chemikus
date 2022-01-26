@@ -25,6 +25,30 @@ body{
                 }
         }
     }
+    .menu{
+        width: 100%;
+        background-color: #303030;
+        .li{
+            font-size: 30px;
+            color: white;
+            i{
+                text-align: center;
+                width: 50px;
+                border: 1px solid white;
+            height: 50px;
+            margin-right: 20px;
+            border-radius: 50%;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            }
+            p {
+                display: none;
+            }
+    }
+        //border-radius: 10px;
+        //margin: 10px auto;
+    }
 }
 .main {
     .changing {
@@ -56,61 +80,30 @@ body{
 .menu{
     width: 100%;
     background-color: #303030;
-    
-    //border-radius: 10px;
-    //margin: 10px auto;
-}
-.li{
+    .li{
         font-size: 30px;
         color: white;
         display: flex;
         i{
-            text-align: center;
-            width: 50px;
-            border: 1px solid white;
-        height: 50px;
-        margin-right: 20px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+            display: none;
         }
         
 }
-
-.personImg{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    
+    //border-radius: 10px;
+    //margin: 10px auto;
 }
+
+
+
 .active{
-    color: rgb(243, 101, 101);
+    color: rgb(243, 101, 101) !important;
     i{
     border-color:rgb(243, 101, 101) ;
     //margin-top: -30px;
     }
 }
 
-@media screen and (max-width:767px) {
-    .li{
-        font-size: 30px;
-    //    color: white;
-        i{
-            
-            width: 50px;
-        height: 50px;
-        
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        }
-        p{
-            display: none;
-        }
-    }
-}
+
 
 //background:rgba(15, 15, 34, 0.705);
 .container{
@@ -142,6 +135,34 @@ body{
         font-size: 50px;
     }
 }
+
+
+.cards{
+    background: #CEE8E2;
+    box-shadow: -3px -3px 7px #ffffff,
+               3px 3px 5px #ceced1;
+    border-radius: 10px;
+    img{
+        width: 150px;
+        height: 150px;
+        padding: 10px;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: block; 
+        //object-fit: cover;
+        border: 10px solid #ceced1c5;
+ box-sizing: none !important;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 .white {
     border:1px solid white;
@@ -189,6 +210,6 @@ h3  ,p{
     // height: 60px;
 }
 .sectOne{
-    height: 90vh;
+    height: 95vh;
     background-color: #CEE8E2 !important;
 }

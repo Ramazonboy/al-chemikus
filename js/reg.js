@@ -1,7 +1,7 @@
 import { createNewUser, getJadval, signIn } from "./firebase.js";
 import { body, createElement } from "./function.js";
 import { jadvalYarat } from "./game.js";
-
+import { index } from "./index.js";
 
 const signUp = () => {
     body.innerHTML = "";
@@ -127,7 +127,7 @@ const signUp = () => {
             nameInput.value,
             emailInput.value,
             passwordInputSign.value,
-            jadvalYarat
+            index
         );
     });
 };
@@ -283,10 +283,9 @@ function logIn() {
         e.stopPropagation()
 
         console.log("keyin");
-        signIn(emailInputSign.value, passwordInputSign.value, () => {
-            getJadval(jadvalYarat)
+        signIn(emailInputSign.value, passwordInputSign.value, index()
 
-        })
+        )
     })
 }
 export { signUp, logIn }

@@ -61,7 +61,7 @@ function writeUserData(userId, name, email, callback) {
         email: email,
     }).then((res) => {
         console.log(res);
-        getJadval(callback)
+        callback()
 
     }).catch((error) => {
         console.log(error);
@@ -77,6 +77,23 @@ function writeElement(userId, name, formula) {
         elementChemistryFormula: formula,
     }).then((res) => {
         console.log(1);
+        //callback();
+    }).catch((error) => {
+        console.log(error);
+        console.log('ishlamadi');
+    });
+}
+function writeProffessor(userId, name, tyil,vyil,imgUrl,mal) {
+    
+    set(ref(db, 'proffessor/' + userId), {
+        uid: userId,
+        fio: name,
+        tyil: tyil,
+        vyil:vyil,
+        imgUrl:imgUrl,
+        malumot:mal
+    }).then((res) => {
+        console.log('olim');
         //callback();
     }).catch((error) => {
         console.log(error);
@@ -119,8 +136,6 @@ const signIn = (email, password, callback) => {
 const isSignIn = (callback = () => { }) => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            const uid = user.uid;
-            //console.log(uid);
             callback(true);
         } else {
             console.warn("no sign in");
@@ -148,6 +163,17 @@ function getUsers(calback) {
 
     })
 }
+function getProffessor(calback) {
+    console.log('ishladi');
+    onValue(ref(db, 'proffessor/'), (data) => {
+    console.log('ishladi1');
+    const dataVal = data.val();
+        calback(dataVal || {})
+        //console.log(dataVal);
+
+    })
+    
+}
 function getJadval(calback) {
     onValue(ref(db, 'MendeleyevJadval/'), (data) => {
         const dataVal = data.val();
@@ -155,6 +181,7 @@ function getJadval(calback) {
         //console.log(dataVal);
 
     })
+    
 }
 function getElement(calback) {
     onValue(ref(db, 'Element/'), (data) => {
@@ -164,4 +191,4 @@ function getElement(calback) {
 
     })
 }
-export { getUsers, createNewUser, signIn, isSignIn, writeElement, getElement, writeMendeleyevJadval, signOutFB, getJadval };
+export { getProffessor,getUsers, writeProffessor,createNewUser, signIn, isSignIn, writeElement, getElement, writeMendeleyevJadval, signOutFB, getJadval };

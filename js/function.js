@@ -1,11 +1,11 @@
 import { signOutFB,getJadval } from "./firebase.js";
-//import {  showFormula, kimyoviyFormulaYozish } from "./formula.js"
+import {  showFormula, kimyoviyFormulaYozish } from "./formula.js"
 import { jadvalYarat, scoreNumber } from "./game.js";
+import { index } from "./index.js";
 import { signUp } from "./reg.js";
 
-//let chance = 5;
-//let scoreNumber = 0
 const body = document.querySelector('body')
+const sect = document.querySelector('#sect')
 
 const randNum = (num) => {
     return Math.floor(Math.random() * num)
@@ -21,29 +21,36 @@ const createElement = (tagName, innerHTML, className, father) => {
     return element;
 };
 
-var word
 const sectionOne = () => {
     
-    const sect1 = createElement('section', '', 'container-fluid ', body)
+    const sect1 = createElement('section', '', 'container-fluid ', sect)
     const sectOneDiv = createElement('div', '', 'row sectOne justify-content-center align-items-center', sect1)
     const colLeft = createElement('div', '', 'col-md-4', sectOneDiv)
     const mediaQ=window.matchMedia('(max-width:576px)')
-    if (mediaQ.matches)
-    {
-        sectOneDiv.classList.remove('sectOne')
-        sectOneDiv.classList.add('my-2')
-console.log('mediaaa');
-}
-    else 
-    {
-        sectOneDiv.classList.remove('my-2')
-        sectOneDiv.classList.add('sectOne row')
-    console.log(mediaQ);
-    }
     const colLeftH1 = createElement('h1', `<span class="text-danger"> al-ChemikuS </span>bilan muvaffiqiyatga erishing`, 'text-center', colLeft)
     const colRight = createElement('div', '', 'col-md-8', sectOneDiv)
     const colRightImg = createElement('img', '', 'w-100 ', colRight);
     colRightImg.src = "./image/probirka.gif"
+    if (mediaQ.matches)
+    {
+        sectOneDiv.classList.remove('sectOne')
+        sectOneDiv.classList.add('my-2')
+        colRight.classList.add('my-2')
+        colRight.classList.add('mb-5')
+        colLeft.classList.add('my-2')
+
+console.log('mediaaa');
+}
+    else 
+    {
+        colRight.classList.remove('my-2')
+        colRight.classList.remove('mb-5')
+        colLeft.classList.remove('my-2')
+        sectOneDiv.classList.remove('my-2')
+        sectOneDiv.classList.add('sectOne')
+    console.log(mediaQ);
+    }
+    
 }
 const headerRender = () => {
     body.innerHTML = ''
@@ -67,6 +74,7 @@ const headerRender = () => {
 
         }
         home.classList.add("active")
+        index()
     })
     const game = createElement('li', ``, 'li', ul)
     const gameI = createElement('i', "", 'fas fa-gamepad', game)
@@ -79,6 +87,7 @@ const headerRender = () => {
 
         }
         game.classList.add("active")
+        getJadval(jadvalYarat)
     })
     const about = createElement('li', ``, 'li', ul)
     const aboutI = createElement('i', "", 'fas fa-address-card', about)
@@ -171,8 +180,8 @@ const refresh = () => {
 //getElement(table1);
 function table1(data) {
     // console.log(data);
-
-    const table = createElement('table', "", "table table-striped bg-white ", body);
+    const div = createElement('div','','container',sect)
+    const table = createElement('table', "", "table table-dark table-striped bg-white ", div);
     const thead = createElement('thead', "", "", table);
 
     const tr = createElement('tr', "", "", thead)
@@ -191,4 +200,4 @@ function table1(data) {
     })
     console.log("chizildi");
 }
-export { signUp, body, headerRender, randNum, createElement, refresh, sectionOne}   
+export { body,sect, headerRender, randNum, createElement, refresh, sectionOne,table1}   

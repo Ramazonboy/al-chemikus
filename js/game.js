@@ -1,14 +1,13 @@
 import { elementI } from "./element.js";
-import { getJadval } from "./firebase.js";
+import { getJadval} from "./firebase.js";
 import { changeElement, kimyoviyFormulaYozish, showFormula } from "./formula.js";
-import { body, createElement, headerRender, randNum, refresh, sectionOne} from "./function.js";
+import { body,sect, createElement,  randNum, refresh, } from "./function.js";
 var scoreNumber1 = 0;
 let formula = {}
 var scoreNumber
 var chance1 = 3
 const jadvalYarat = (data) => {
-    headerRender()
-    sectionOne()
+    
     const container = document.createElement('div');
     container.className = "container-fluid p-3 py-5 ";
     container.style.background="#554552"
@@ -106,7 +105,7 @@ const jadvalYarat = (data) => {
     })
 
     container.append(row1, row)
-    body.append(container)
+    sect.append(container)
 }
 
 export { formula, jadvalYarat, scoreNumber, chance1 }

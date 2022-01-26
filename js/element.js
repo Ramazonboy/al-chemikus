@@ -11,5 +11,5 @@ const elementRead=(data)=>{
     })
 }
 const a=getElement(elementRead)
-console.log(elementI.length);
+
 export { elementI }

@@ -13,7 +13,26 @@ body {
     .container-fluid .row .col-1 p {
       display: none !important; }
     .container-fluid .row .col-1:hover {
-      transform: scale(1.2); } }
+      transform: scale(1.2); }
+
+  .menu {
+    width: 100%;
+    background-color: #303030; }
+    .menu .li {
+      font-size: 30px;
+      color: white; }
+      .menu .li i {
+        text-align: center;
+        width: 50px;
+        border: 1px solid white;
+        height: 50px;
+        margin-right: 20px;
+        border-radius: 50%;
+        display: flex !important;
+        justify-content: center;
+        align-items: center; }
+      .menu .li p {
+        display: none; } }
 .main .changing {
   background-color: #38b592;
   height: 100vh; }
@@ -34,44 +53,18 @@ ul {
 .menu {
   width: 100%;
   background-color: #303030; }
-
-.li {
-  font-size: 30px;
-  color: white;
-  display: flex; }
-  .li i {
-    text-align: center;
-    width: 50px;
-    border: 1px solid white;
-    height: 50px;
-    margin-right: 20px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-
-.personImg {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%; }
+  .menu .li {
+    font-size: 30px;
+    color: white;
+    display: flex; }
+    .menu .li i {
+      display: none; }
 
 .active {
-  color: #f36565; }
+  color: #f36565 !important; }
   .active i {
     border-color: #f36565; }
 
-@media screen and (max-width: 767px) {
-  .li {
-    font-size: 30px; }
-    .li i {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center; }
-    .li p {
-      display: none; } }
 .container {
   border-radius: 20px;
   margin-top: 10px;
@@ -94,6 +87,20 @@ ul {
     height: 80px;
     border-radius: 50%;
     font-size: 50px; }
+
+.cards {
+  background: #CEE8E2;
+  box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1;
+  border-radius: 10px; }
+  .cards img {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    border: 10px solid #ceced1c5;
+    box-sizing: none !important; }
 
 .white {
   border: 1px solid white; }
@@ -121,7 +128,7 @@ ul {
     color: blue !important; }
 
 .sectOne {
-  height: 90vh;
+  height: 95vh;
   background-color: #CEE8E2 !important; }
 
 /*# sourceMappingURL=style.css.map */
