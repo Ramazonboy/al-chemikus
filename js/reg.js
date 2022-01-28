@@ -1,11 +1,14 @@
 import { createNewUser, getJadval, signIn } from "./firebase.js";
 import { body, sect,createElement } from "./function.js";
-import { jadvalYarat } from "./game.js";
+
 import { index } from "./index.js";
 
 const signUp = () => {
-    sect.innerHTML = "";
-    const main = createElement("main", "", "main", sect);
+    
+    const main = createElement("main", "", "main", body);
+    main.id='main';
+        
+    if (!document.querySelector("#main").classList.contains("main"))document.querySelector("#main").classList.remove("d-none")
     const forma= createElement('div','','forma p-2  ',main)
     const col7 = createElement(
         "div",
@@ -56,6 +59,8 @@ const signUp = () => {
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
+        document.querySelector("#main").classList.add("main") 
+        main.innerHTML=''
         createNewUser(
             nameInput.value,
             emailInput.value,
@@ -68,10 +73,14 @@ const signUp = () => {
 };
 
 function logIn() {
-    sect.innerHTML = "";
+    
 
-    const main = createElement("main", "", "main", sect);
-
+    const main = createElement("main", "", "main", body);
+    main.id='main';
+        
+    if (!document.querySelector("#main").classList.contains("main"))
+        document.querySelector("#main").classList.add("main")
+   
     const forma= createElement('div','','forma p-2  ',main)
     const col7 = createElement(
         "div",
@@ -118,7 +127,8 @@ function logIn() {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         e.stopPropagation()
-
+        
+        
         signIn(emailInputSign.value, passwordInputSign.value, index
 
         )

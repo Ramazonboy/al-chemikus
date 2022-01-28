@@ -63,7 +63,7 @@ function writeUserData(userId, name, email, callback) {
         email: email,
     }).then((res) => {
         console.log(res);
-        callback(userId)
+        callback(res)
 
     }).catch((error) => {
         console.log(error);

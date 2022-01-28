@@ -7,7 +7,8 @@ import { signUp } from "./reg.js";
 
 const body = document.querySelector('body')
 const sect = document.querySelector('#sect')
-
+const oneDiv=document.querySelector('#onePage')
+const threeDiv=document.querySelector('#threePage')
 const randNum = (num) => {
     return Math.floor(Math.random() * num)
 }
@@ -24,8 +25,8 @@ const createElement = (tagName, innerHTML, className, father) => {
 
 const sectionOne = () => {
 
-    sect.innerHTML=''
-    const sect1 = createElement('section', '', 'container-fluid ', sect)
+    oneDiv.innerHTML=''
+    const sect1 = createElement('section', '', 'container-fluid ', oneDiv)
     const sectOneDiv = createElement('div', '', 'row sectOne justify-content-center align-items-center', sect1)
     const colLeft = createElement('div', '', 'col-md-4', sectOneDiv)
     const mediaQ=window.matchMedia('(max-width:576px)')
@@ -208,7 +209,8 @@ function table1(data) {
 }
 function table2(data,index) {
     // console.log(data);
-    const sectOlimlar =createElement('section','','bg-white  py-5',sect)
+    threeDiv.innerHTML="";
+    const sectOlimlar =createElement('section','','bg-white  py-5',threeDiv)
     const h1Olimlar = createElement('h1','Murakkab moddalarning kimyoviy formulasi','text-center text-dark  ', sectOlimlar)
     const div = createElement('div','','container',sectOlimlar)
 
@@ -243,12 +245,12 @@ function table2(data,index) {
         
     }) 
     const btnDiv=createElement('div','','d-flex justify-content-end',div)
-    const btnTable= createElement('button','To\'liq','btn btn-primary text-center',btnDiv)
+    const btnTable= createElement('button','Keyingi','btn btn-primary text-center',btnDiv)
    
     btnTable.addEventListener("click",()=>{
-        sectOlimlar.innerHTML=''
-        sectOlimlar.classList.remove('bg-white')
-        sectOlimlar.classList.remove('py-5')
+        // sectOlimlar.innerHTML=''
+        // sectOlimlar.classList.remove('bg-white')
+        // sectOlimlar.classList.remove('py-5')
         if (a.length>indexTable+9)
         getElement(table2,indexTable+10)
         else getElement(table2)
